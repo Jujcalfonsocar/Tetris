@@ -57,11 +57,11 @@ public class Tablero {
                 Dupla posTemp = new Dupla(X * LADO + posicion.X, Y * LADO + posicion.Y);//Posicion en pixeles
 
                 //dibujar casiilla
-                if (Tablero[X][Y] == "") {
+                if (Tablero[X][Y] == "") {// Si esta vacio pone color. Si no dibuja la imagen del tetrominio
 
                     g.setColor(Color.BLACK);
 
-                    if ((X + Y) % 2 == 0) {
+                    if ((X + Y) % 2 == 0) {//los pares de color gris suave
                         g.setColor(Color.LIGHT_GRAY);
                     } else {
                         g.setColor(Color.GRAY);

@@ -6,7 +6,7 @@ public class Pieza implements Runnable {
     SuperficieDeDibujo superficieDeDibujo;
     Tablero tablero;
     Imagen imagen;
-    Dupla posicion = new Dupla(4, 1);
+    Dupla posicion = new Dupla(4, 1);// posicion donde inicia la pieza
     Tetrimino PA = Tetrimino.Aleatorio();
     Tetrimino Proximos[] = new Tetrimino[1];
 

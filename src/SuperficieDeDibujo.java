@@ -33,7 +33,7 @@ public class SuperficieDeDibujo extends Canvas{
         imagen = new Imagen(this);// debajo del tablero ya que utiliza propiedades
         tablero.imagen=imagen;
         pieza = new Pieza(this);
-        CapturarTeclas();
+        CapturarTeclas();// activar la captra de eventos
         setFocusable(true);
     }
     
@@ -74,7 +74,7 @@ public class SuperficieDeDibujo extends Canvas{
 
             @Override
             public void keyPressed(KeyEvent ke) {//cuando se preciona una tecla
-                if(ke.getKeyCode()==KeyEvent.VK_RIGHT){//Derecha
+                if(ke.getKeyCode()==KeyEvent.VK_RIGHT){//Derecha  getKeyCode() obtener el codigo ASCII de la tecla presionado y lo compara con un codigo predeterminado
                     pieza.MoverDerecha();
                     return;
                 }else if(ke.getKeyCode()==KeyEvent.VK_LEFT){//Izquierda

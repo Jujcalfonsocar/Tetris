@@ -10,10 +10,10 @@
  */
 public class Tetrimino {
 
-    Dupla periferico[];
+    Dupla periferico[]; //arreglo de periferico para los minos
     String nombre;
 
-    public Tetrimino(Dupla periferico0, Dupla periferico1, Dupla periferico2, Dupla periferico3, String nombre) {
+    public Tetrimino(Dupla periferico0, Dupla periferico1, Dupla periferico2, Dupla periferico3, String nombre) {// periferico cada mino
         periferico = new Dupla[4];
         periferico[0] = periferico0;
         periferico[1] = periferico1;
@@ -23,11 +23,11 @@ public class Tetrimino {
     }
     
     public static Tetrimino Aleatorio(){
-        String Todos[] ={"Z","S","J","L","T","O","I"};
+        String Todos[] ={"Z","S","J","L","T","O","I"};//Nombres de los tetriminos escogera uno al azar
         return consultar(Todos[(int)(Math.random()*7)]);
     }
 
-    public static Tetrimino consultar(String nombre) {
+    public static Tetrimino consultar(String nombre) {//dependiendo de lo que salga aleatorio escogera l caso
         //consultar Nombre (Devuelve el mapa de las posiciones)
         switch (nombre) {
             case "Z":
