@@ -29,7 +29,7 @@ public class Pieza implements Runnable {
             imagen.dibujarPeriferico(new Dupla(posicion.X + PA.periferico[i].X, posicion.Y + PA.periferico[i].Y), g, PA.nombre);
         }
         for (int i = 0; i < Proximos.length; i++) {
-            Dupla pos = new Dupla(15, 7);
+            Dupla pos = new Dupla(13, 6);
             for (int j = 0; j < Proximos[i].periferico.length; j++) {
                 double XReal = Proximos[i].periferico[j].X + pos.X;
                 double YReal = Proximos[i].periferico[j].Y + pos.Y;

@@ -16,13 +16,10 @@ public class ControlPrincipal {
     private static int FPS = 0;//Fotogramas por segundo
 
     public static void main(String[] args) {
-        crearVentana(950, 600, "Tetris");
+        crearVentana(600, 600, "Tetris");
         iterarBuclePrincipal();
     }
 
-    public void iniciarJuego() {
-    }
-    
     public static void actualizar(){
         APS++;
         superdicieDeDibujo.dibujar();
@@ -40,24 +37,24 @@ public class ControlPrincipal {
 
     public static void iterarBuclePrincipal() {//Hacer que los dibujosdel juegosean visibles
         final int NS_POR_SEGUNDO = 1000000000;//Nanosegundos
-        final int APS_OBJETIVO = 60;//Actualiza 30 veces por segundo
+        final int APS_OBJETIVO = 60;//Actualiza 60 veces por segundo
         final int NS_POR_ACTUALIZACION = NS_POR_SEGUNDO / APS_OBJETIVO;//Actualiza imajenes 
 
         long tiempoDeReferenciaActualizacion = System.nanoTime();//Devuerve el momento en el que nos encontramos en nanosegundos
-        long tiempoDeReferenciaContador = System.nanoTime();
+        long tiempoDeReferenciaContador = System.nanoTime();// devuelve el momento exacto en el que se ha ejecutado
 
         double delta = 0;
         double tiempoSinProcesar;
 
-        while (true) {
+        while (true) {//ciclo infinito mientras el jugador tenga el juego abierto
 
             long tiempoInicial = System.nanoTime();
             tiempoSinProcesar = tiempoInicial - tiempoDeReferenciaActualizacion;//Tiempo trancurrido desde la referencia 
             tiempoDeReferenciaActualizacion = tiempoInicial;//Tiempo entre ciclo y ciclo
-            delta += tiempoSinProcesar / NS_POR_ACTUALIZACION;//Indica el moento de actualizacion
+            delta += tiempoSinProcesar / NS_POR_ACTUALIZACION;//Indica el momento de actualizacion
 
             while (delta >= 1) {
-                //Actualizar
+                //Actualizar porque el tiempo sin actualizar ha llegado a uno
                 delta--;
                 actualizar();
             }

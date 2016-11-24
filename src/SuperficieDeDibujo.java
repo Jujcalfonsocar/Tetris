@@ -19,7 +19,7 @@ import java.awt.image.BufferStrategy;
  */
 public class SuperficieDeDibujo extends Canvas{
     
-    private BufferStrategy buffer; //Clase para cargar bien las imajenes
+    private BufferStrategy buffer; //Clase para cargar bien las imajenes, a velocidad de proceaador para que no se vean superpuestas
     private Graphics g;//Clase para dibujar
     Imagen imagen;
     Tablero tablero;
@@ -28,9 +28,9 @@ public class SuperficieDeDibujo extends Canvas{
     //Color color = Color.WHITE;
 
     public SuperficieDeDibujo(int ancho, int alto) {//Area de dibujo
-        setSize(ancho, alto);
-        tablero = new Tablero(this);
-        imagen = new Imagen(this);
+        setSize(ancho, alto);//area de dibujo
+        tablero = new Tablero(this);//this es la superficie actual de dibujo
+        imagen = new Imagen(this);// debajo del tablero ya que utiliza propiedades
         tablero.imagen=imagen;
         pieza = new Pieza(this);
         CapturarTeclas();
@@ -50,9 +50,9 @@ public class SuperficieDeDibujo extends Canvas{
         g = buffer.getDrawGraphics();//g dibuje en el buffer
         
         //Aca se dibuja todo lo necesario
-        
+        g.setColor(Color.BLACK);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
-        g.setColor(Color.BLUE);
+        
         tablero.dibujar(g);
         pieza.dibujar(g);
         

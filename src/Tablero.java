@@ -20,24 +20,24 @@ public class Tablero {
 
     final int COLUMNAS = 10;
     final int FILAS = 20;
-    final int LADO = 28;
+    final int LADO = 28;// lado de los cuadrados
 
     String Tablero[][];
     SuperficieDeDibujo superficieDeDibujo;
-    int anchoSDD, altoSDD, puntaje;
+    int anchoSDD, altoSDD, puntaje;// ancho y alto superficie de dibujo... Puntuacion
     Dupla posicion;
     Imagen imagen;
     Puntuacion myWindow;
 
     public Tablero(SuperficieDeDibujo superficieDeDibujo) {
-        this.myWindow = new Puntuacion("");
+        this.myWindow = new Puntuacion("");// inicia puntuacion y superficie de dibujo
         this.superficieDeDibujo = superficieDeDibujo;
         calcularPosicion();
-        Tablero = new String[COLUMNAS][FILAS];
+        Tablero = new String[COLUMNAS][FILAS];//Crea una matriz con datos null
         casillasVacias();
     }
 
-    public void casillasVacias() {
+    public void casillasVacias() {// hace que cada posicion en la matriz quede vacia
         for (int Y = 0; Y < FILAS; Y++) {
             for (int X = 0; X < COLUMNAS; X++) {
                 Tablero[X][Y] = "";
@@ -48,7 +48,7 @@ public class Tablero {
     public void calcularPosicion() {
         anchoSDD = superficieDeDibujo.getWidth();
         altoSDD = superficieDeDibujo.getHeight();
-        posicion = new Dupla((anchoSDD - COLUMNAS * LADO) / 2, (altoSDD - FILAS * LADO) / 2);
+        posicion = new Dupla((anchoSDD - COLUMNAS * LADO) / 4, (altoSDD - FILAS * LADO) / 2);//Calcula con la mitad para que quede en el centro y corrido a la derecha
     }
 
     public void dibujar(Graphics g) {
@@ -70,10 +70,10 @@ public class Tablero {
                     g.fillRect(posTemp.intX(), posTemp.intY(), LADO, LADO);
 
                     g.setColor(Color.BLACK);
-                    g.drawRect(posTemp.intX(), posTemp.intY(), LADO, LADO);
+                    g.drawRect(posTemp.intX(), posTemp.intY(), LADO, LADO);// modficar los datos a int, dibuja el cuadrado, posision y lados
 
                 } else {
-                    imagen.dibujarPeriferico(new Dupla(X, Y), g, Tablero[X][Y]);
+                    imagen.dibujarPeriferico(new Dupla(X, Y), g, Tablero[X][Y]);//Revisar metodo en imagen
                 }
 
                 //psicion y dimenciones de la casilla

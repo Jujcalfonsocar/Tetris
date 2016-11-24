@@ -21,15 +21,17 @@ public class Puntuacion extends Frame implements WindowListener, ActionListener 
 
         setLayout(new BorderLayout());
         addWindowListener(this);
-        b = new JTextArea("PUNTACION");
-        text = new JTextArea(title);
-        add(b,BorderLayout.NORTH);
-        add(text,BorderLayout.WEST);
+        b = new JTextArea("   TU   PUNTACION:");
+        text = new JTextArea(title+"     ");
+        add(b,BorderLayout.WEST);
+        add(text,BorderLayout.EAST);
     }
 
     public void main(String title) {
         Puntuacion myWindow = new Puntuacion(title);
-        myWindow.setSize(350, 100);
+        myWindow.setTitle("PUNTUACION");
+        myWindow.setLocation(500, 300);
+        myWindow.setSize(300, 80);
         myWindow.setVisible(true);
     }
 

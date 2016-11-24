@@ -8,7 +8,7 @@
  *
  * @author usuario
  */
-public class Dupla {
+public class Dupla {//Almacenar datos por pares
 
     double X;
     double Y;

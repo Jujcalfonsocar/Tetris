@@ -19,7 +19,7 @@ public class Imagen {
 
     public Imagen(SuperficieDeDibujo superficieDeDibujo) {
         this.superficieDeDibujo = superficieDeDibujo;
-        posicioDelTablero = superficieDeDibujo.tablero.posicion;
+        posicioDelTablero = superficieDeDibujo.tablero.posicion;//llamar el tablero dentro de la SDD y la posición de este
         lado = superficieDeDibujo.tablero.LADO;
     }
 
@@ -29,7 +29,7 @@ public class Imagen {
         return new Dupla (X,Y);
     }
 
-    public void dibujarPeriferico(Dupla pos, Graphics g, String tipo) {//Dibuja dentro del buffer
+    public void dibujarPeriferico(Dupla pos, Graphics g, String tipo) {//Dibuja dentro del buffer, 
         switch(tipo){
             case"Z":
                 g.setColor(Color.ORANGE);
@@ -53,6 +53,6 @@ public class Imagen {
                 g.setColor(Color.cyan);
                 break;
         }
-        g.fillRect((int)calcularPosicion(pos).X, (int)calcularPosicion(pos).Y, lado, lado);
+        g.fillRect((int)calcularPosicion(pos).X, (int)calcularPosicion(pos).Y, lado, lado);//se utiliza el metodo anterior
     }
 }
